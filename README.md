@@ -1,3 +1,5 @@
-# Capstone_Project
+## Capstone_Project
 
-The Vision API can perform feature detection on a local image file by sending the contents of the image file as a base64 encoded string in the body of your request.
+* The following repository is a real-time face detection and emotion classification model.
+
+* The face detection is powered by MTCNN and openCV. The emotion classification model is a built on an CNN architecture called VGGFace with weights trained on the fer2013 dataset.
