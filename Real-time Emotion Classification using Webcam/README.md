@@ -1,4 +1,4 @@
-## To run the demo
+## To run "emotion_webcam_demo"
 
 * Install these dependencies with pip install 
     * "Opencv-python,numpy,mtcnn, pandas,tensorflow, keras,vggface,imageio"
