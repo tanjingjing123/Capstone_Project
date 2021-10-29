@@ -5,4 +5,4 @@
 
 * Download pretrained model and weight trained_vggface.h5 from [here](https://drive.google.com/file/d/1Wv_Z4lAa7BgYqSAeceK9TxJNfwoLTwKy/view)
 
-* Place trained_vggface.h5 and run emotion_webcam_demo.py using python3 emotion_webcam_demo.py
+* Change trained_vggface.h5 path in the code and run emotion_webcam_demo.py using python3 emotion_webcam_demo.py
