@@ -71,25 +71,3 @@ if response.error.message:
 
 
 
-
-    """
-    print('anger: {}'.format(likelihood_name[face.anger_likelihood]))
-    print('joy: {}'.format(likelihood_name[face.joy_likelihood]))
-    print('surprise: {}'.format(likelihood_name[face.surprise_likelihood]))
-    print('sorrow: {}'.format(likelihood_name[face.sorrow_likelihood]))
-    print('blur: {}'.format(likelihood_name[face.blurred_likelihood]))
-    print('headwear: {}'.format(likelihood_name[face.headwear_likelihood]))
-
-    anger = '{}'.format(likelihood_name[face.anger_likelihood])
-    joy = '{}'.format(likelihood_name[face.joy_likelihood])
-    surprise = '{}'.format(likelihood_name[face.surprise_likelihood])
-    sorrow = '{}'.format(likelihood_name[face.sorrow_likelihood])
-    blur = '{}'.format(likelihood_name[face.blurred_likelihood])
-    headwear = '{}'.format(likelihood_name[face.headwear_likelihood])
-
-    list = [anger,joy,surprise,sorrow,blur,headwear]
-    
-    for value in list:
-        if value == "VERY_LIKELY":
-            print("The Person looks very sad", value)
-"""
