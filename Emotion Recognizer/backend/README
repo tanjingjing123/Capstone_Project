@@ -1,0 +1,11 @@
+1. install pipenv
+    pip3 install pipenv
+2. use python 3 for pipenv
+    pipenv --three
+3. install flask
+    pipenv install flask
+4. install translate
+    pipenv install translate
+5. In the same way, pipenv install all the imports. 
+6. cd to the folder that contains bootstrap.sh and run the bootstrap
+    ./bootstrap.sh

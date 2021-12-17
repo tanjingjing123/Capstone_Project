@@ -1,0 +1,292 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: sans-serif;
+    
+}
+
+body{
+    
+    min-height: 100vh;
+    
+}
+
+.header {
+    float: center;
+    font-size: 100px;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    padding: 20px 10px;
+  }
+  
+  /* Style the header links */
+  .header a {
+    float: center;
+    color: red;
+    text-align: center;
+    padding: 12px;
+    font-style: Arial;
+    font-size-adjust: 1.99;
+    text-decoration: none;
+    font-size: 600px;
+    line-height: 25px;
+    border-radius: 4px;
+  }
+  
+  /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+  .header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
+
+  /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+  @media screen and (max-width: 500px) {
+    .header a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  }
+
+.maincard{
+   
+    display: flex;
+    justify-content: space-around;  
+    align-items: center;
+    padding:5px;
+    height: 100%;
+    width:100vw;
+    
+   
+}
+
+section>img{
+    position: absolute;
+    width: 50px;
+    right:1%;
+    top:1%;
+    padding:1%;
+    
+}
+
+section>.nodelogo{
+    position: absolute;
+    width: 50px;
+    left:1%;
+    top:1%;
+    padding:1%;
+   
+}
+
+.price{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:200%;
+    object-fit:cover !important;
+    border-radius:24px;
+    padding:10px ;
+    
+}
+
+section{
+    padding:10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+    width:1200px;
+    border-radius: 20px;
+
+}
+
+.pricetracker{
+    color:#fff;
+    font-size:8px;
+}
+
+section .card{
+position: relative;
+width:300px;
+height:300px;
+margin: 20px;
+transform-style: preserve-3d;
+perspective: 1000px;
+
+}
+
+section .card .box{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    transform-style: preserve-3d;
+    transition: 1s ease;
+    
+}
+
+section .card .box .imgBx{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    box-shadow:0px 10px 30px rgba(0,0,0,0.8);
+    border-radius:24px;
+    
+}
+
+section .card .box .imgBx img{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    border-radius:24px;
+    padding:10px;
+}
+
+section .card .box .contentBx{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    background: white;
+    backface-visibility: hidden;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    transform-style: preserve-3d;
+    transform:rotateY(180deg);
+    border-radius:24px;
+
+}
+
+
+section .card:hover .box{
+    transform:rotateY(180deg)
+} 
+
+section .card .box .contentBx div{
+transform-style: preserve-3d;
+padding:20px;
+background:linear-gradient(45deg,#fe0061,#ffeb3b);
+transform:translateZ(100px)
+}
+
+section .card .box .contentBx div h2{
+    color:#fff;
+    font-size:50px;
+   
+}
+
+
+/*section .card .box .contentBx div p{
+    color:#fff;
+    font-size:16px;
+    
+}*/
+
+.project__details{
+    color:black;
+    font-size:12px;
+    font-weight:800;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.project__details:hover{
+    transition: ease-out 0.6s;
+    transform: scale(1.3);
+}
+
+@media(max-width:1200px){
+    .maincard{
+        display: flex;
+        justify-content: space-around;  
+        align-items: flex-start;
+        height:100%;
+        width:100vw;     
+       
+    }
+}
+
+.hoverClass{
+    cursor:pointer;
+}
+
+.inputClass {
+    position: fixed;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, 0);
+}
+
+.transcribe {
+    position: fixed;
+    top: 150%;
+    border: 1px solid #000;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    width: 115%;
+    background-color: #00A800
+}
+input[type="file"] {
+    display: none;
+}
+
+input[type="submit"] {
+    display: none;
+}
+
+.closeButton {
+    position: fixed;
+    left: 90%;
+    background-color: #000;
+    color: red;
+    top: -2%
+}
+.custom-file-upload {
+    border: 1px solid #000;
+    display: inline-block;
+    padding: 6px 12px;
+    width:100%;
+    cursor: pointer;
+    background-color: #24a0ed;
+}
+
+.speechClass{
+
+    /* width: 100000;
+  height: 1000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  border: 2px solid #000;
+  box-shadow: 24;
+  background-color: azure; */
+
+  position: absolute;
+  width: 30%;
+  height: 40%;
+  border: 2px solid #000;
+  box-shadow: 24;
+  background-color: azure;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+
+  transform: translate(-50%, -50%);
+}
