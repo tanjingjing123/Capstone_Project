@@ -6,6 +6,7 @@ from flask import Flask, request, Response, send_file
 from translate import Translator
 from flask_cors import CORS, cross_origin
 from werkzeug.utils import secure_filename
+import music_recommendation_lib
 
 import SpeechToTextService as stts
 import TextToSpeechService as ttss
@@ -60,30 +61,37 @@ def translate_text_to_speech():
 @app.route("/Image_To_Emotion", methods=['GET', 'POST'])
 @cross_origin()
 def captureimage():
-	if request.method == "POST":
-		content = request.form['base64Image']	# should be base64 image = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAFeCAYAAACrXUkIAAAAAXNSR0IArs4c6QAAIABJREFUe.......UmHWs/yaf0fFm2et73m9BcAAAAASUVORK5CYII="
-		base64DecodedString = base64.b64decode(str(content.replace("data:image/png;base64,","")))
-		
-		saveToImage(base64DecodedString)
-		
-		from Google_Image_To_Emotions import detectEmotion
-		detectedEmotion = detectEmotion(base64DecodedString)
-		
-		
-		# Enable this block to send response in json format
-		response = app.response_class(
-				response=json.dumps({"emotion": detectedEmotion, "base64StringResend":content}),
-				status=200,
-				mimetype='application/json'
-		)
-		return response
-	"""	
-		return render_template("captureImage.html", emotion = detectedEmotion, base64StringResend=content)
-	else:
-		return render_template("captureImage.html")
+    if request.method == "POST":
+        content = request.form['base64Image']	# should be base64 image = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAFeCAYAAACrXUkIAAAAAXNSR0IArs4c6QAAIABJREFUe.......UmHWs/yaf0fFm2et73m9BcAAAAASUVORK5CYII="
+        base64DecodedString = base64.b64decode(str(content.replace("data:image/png;base64,","")))
+
+        saveToImage(base64DecodedString)
+
+        from Google_Image_To_Emotions import detectEmotion
+        detectedEmotion = detectEmotion(base64DecodedString)
+
+
+        # Enable this block to send response in json format
+        response = app.response_class(
+                response=json.dumps({"emotion": detectedEmotion, "base64StringResend":content}),
+                status=200,
+                mimetype='application/json'
+        )
+        return response
+    """	
+        return render_template("captureImage.html", emotion = detectedEmotion, base64StringResend=content)
+    else:
+        return render_template("captureImage.html")
     """
 
 def saveToImage(base64DecodedString):
-	# print(base64DecodedString)
-	with open("UPLOADS/imageToSave.png", "wb") as fh:
-		fh.write(base64DecodedString)
+    # print(base64DecodedString)
+    with open("UPLOADS/imageToSave.png", "wb") as fh:
+        fh.write(base64DecodedString)
+
+@app.route('/get_music_rec', methods=['GET', 'POST'])
+def get_music_rec():
+    args = request.args
+    keyword = args['keyword']
+
+    return json.dumps(music_recommendation_lib.GetRecommendation(keyword))

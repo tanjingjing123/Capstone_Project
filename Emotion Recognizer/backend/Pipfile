@@ -11,6 +11,7 @@ pydub = "*"
 speechrecognition = "*"
 google-cloud = "*"
 google-cloud-texttospeech = "*"
+google-cloud-vision = "*"
 
 [dev-packages]
 

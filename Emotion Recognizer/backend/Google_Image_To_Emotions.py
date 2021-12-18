@@ -10,7 +10,7 @@ def findInMap(visions, prob):
         return -1
 
 # Creates google client
-os.environ['GOOGLE_APPLICATION_CREDENTIALS']  ="/home/sans/Desktop/TexttoSpeech/Google_API.json"
+os.environ['GOOGLE_APPLICATION_CREDENTIALS']  ="./capstone.json"
 
 def detectEmotion(content):
     image = vision.Image(content=content)
