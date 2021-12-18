@@ -124,6 +124,28 @@ export const Welcome: React.FC<IWelcomeProps> = () => {
                 ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
             };
             image.src = response.data.base64StringResend+"";
+
+
+            axios
+              .get("http://localhost:8020/get_music_rec", {
+                params: {
+                  keyword: response.data.emotion,
+                },
+              })
+              .then((data) => {
+                console.log(data.data);
+                var musicList:any = document.getElementById("musicList");
+
+                let text = "";
+                text += "<span>MUSIC RECOMMENDATION</span></br>";
+                data.data.forEach(addMusic);
+
+                function addMusic(item, index) {
+                  text += "<li> MUSIC: " + item[0] + " AUTHOR: " + item[1]+ " LINK: " + "<a href=" + item[2] + ">" + item[2] + "</a>" + "</li>";
+                }
+
+                musicList.innerHTML = text;
+              });
       });
         }
       );
@@ -506,6 +528,9 @@ export const Welcome: React.FC<IWelcomeProps> = () => {
                             name="file"
                             onChange={uploadImage}
                           />
+                          <br />
+                            <ul id="musicList">
+                            </ul>
                           <br />
 
                           <div>
