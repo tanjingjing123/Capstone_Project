@@ -1,4 +1,4 @@
 #!/bin/sh
 export FLASK_APP=./controller.py
 source $(pipenv --venv)/bin/activate
-flask run -h 0.0.0.0 -p 8020 --cert=adhoc
+flask run -h 0.0.0.0 -p 8020 --cert="cert.pem" --key="key.pem"
