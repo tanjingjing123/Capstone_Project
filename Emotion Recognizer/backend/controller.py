@@ -48,12 +48,13 @@ def translate_text_to_speech():
     file = request.files["inputFile"]
     filename = secure_filename(file.filename)
     # filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-    filepath = os.path.join("/home/sans/Downloads/Capstone-Project-main (1)/Emotion Recognizer/backend/UPLOADS", filename)
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    filepath = os.path.join(dir_path + "/UPLOADS", filename)
     file.save(filepath)
     print(filename, "-", filepath)
     ttss.text_to_speech_service(filepath)
 
-    return flask.send_file('/home/sans/Downloads/Capstone-Project-main (1)/Emotion Recognizer/backend/output.mp3',
+    return flask.send_file(dir_path + '/output.mp3',
                                as_attachment=True, mimetype="audio/mp3")
 
 

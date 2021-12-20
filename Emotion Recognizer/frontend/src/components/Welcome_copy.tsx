@@ -146,7 +146,7 @@ export const Welcome: React.FC<IWelcomeProps> = () => {
 
                 musicList.innerHTML = text;
               });
-      });
+            });
         }
       );
     }
@@ -506,7 +506,7 @@ export const Welcome: React.FC<IWelcomeProps> = () => {
                       onClose={handleCloseForEmotion}
                       aria-labelledby="modal-modal-title"
                       aria-describedby="modal-modal-description">
-                      <Box className="speechClass" style={{overflow: "auto"}}>
+                      <Box className="speechClass">
                         <Typography
                           id="modal-modal-title"
                           variant="h6"
