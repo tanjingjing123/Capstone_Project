@@ -73,7 +73,7 @@ export const Welcome: React.FC<IWelcomeProps> = () => {
 
   const setTranslatedText = () => {
     axios
-      .get("http://3.141.23.128:8020/translate_text", {
+      .get("https://3.141.23.128:8020/translate_text", {
         params: {
           word: speechInput,
           language: "chinese",
@@ -106,7 +106,7 @@ export const Welcome: React.FC<IWelcomeProps> = () => {
       let formData = new FormData();
       formData.append("base64Image", data);
       axios({
-        url: "http://3.141.23.128:8020/Image_To_Emotion",
+        url: "https://3.141.23.128:8020/Image_To_Emotion",
         method: "post",
         responseType: "json",
         headers: { Accept: "*/*", "Content-Type": "multipart/form-data" },
@@ -127,7 +127,7 @@ export const Welcome: React.FC<IWelcomeProps> = () => {
 
 
             axios
-              .get("http://3.141.23.128:8020/get_music_rec", {
+              .get("https://3.141.23.128:8020/get_music_rec", {
                 params: {
                   keyword: response.data.emotion,
                 },
@@ -165,7 +165,7 @@ export const Welcome: React.FC<IWelcomeProps> = () => {
     let formData = new FormData();
     formData.append("inputFile", textFileChosen[0], textFileChosen[0].name);
     axios({
-      url: "http://3.141.23.128:8020/Text_to_speech",
+      url: "https://3.141.23.128:8020/Text_to_speech",
       method: "post",
       responseType: "blob",
       headers: { Accept: "*/*", "Content-Type": "multipart/form-data" },
@@ -191,7 +191,7 @@ export const Welcome: React.FC<IWelcomeProps> = () => {
       formData.append("inputFile", fileChosen[0], fileChosen[0].name);
       axios({
         method: "post",
-        url: "http://3.141.23.128:8020/Speech_to_text",
+        url: "https://3.141.23.128:8020/Speech_to_text",
         headers: { Accept: "*/*", "Content-Type": "multipart/form-data" },
         data: formData,
       }).then((data) => setConvertedSpeech(data.data));
